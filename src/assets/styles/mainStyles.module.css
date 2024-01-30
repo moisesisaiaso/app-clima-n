@@ -1,13 +1,85 @@
 .weatherContainer__main {
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 .weatherContainer__main::after {
     content: "";
     display: block;
     width: 1px;
-    height: 100%;
+    height: 80%;
     background-color: white;
     position: absolute;
     left: 50%;
+    top: 10%;
+    z-index: -1;
+}
+
+.main__content::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: fixed;
+    border-radius: 45px;
+}
+
+.main__content::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    border-radius: 45px;
+    border: 1px solid rgb(224, 223, 223);
+}
+
+.main__content {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5rem;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+
+    scrollbar-width: none; /* para Firefox */
+    overflow: auto; /* Permite el desplazamiento */
+}
+
+.main__content::-webkit-scrollbar {
+    display: none; /* para Chrome, Safari y Opera */
+}
+
+.content__group {
+    display: flex;
+    height: 100%;
+    flex-basis: 25%;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.group__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 2rem;
+    align-items: center;
+    list-style: none;
+    flex-grow: 1;
+}
+
+.list__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 1px gray;
+}
+
+img {
+    margin-right: 15px;
 }

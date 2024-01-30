@@ -1,18 +1,30 @@
+import { dataFake } from "./helpers/fake";
+
 import generalStyles from "./assets/styles/generalStyles.module.css";
 import headerStyles from "./assets/styles/headerStyles.module.css";
 import mainStyles from "./assets/styles/mainStyles.module.css";
+import footerStyles from "./assets/styles/footerStyles.module.css";
+
 import { useEffect, useState } from "react";
 import { getWeatherByGeolocation } from "./helpers/getWeatherByGeolocation";
 import { SearchByCity } from "./components/SearchByCity";
 import { getWeatherByCity } from "./helpers/getWeatherByCity";
 import { HeaderContent } from "./components/HeaderContent";
+import { MainContent } from "./components/MainContent";
+import { FooterContent } from "./components/FooterContent";
+import { getRandomBackground } from "./helpers/randomIndex";
 
 function App() {
     const [weatherData, setWeatherData] = useState();
     const [city, setCity] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [fondo, setFondo] = useState();
 
     useEffect(() => {
+        /* imagen random */
+        const getFondo = getRandomBackground();
+        setFondo(getFondo);
+
         /* Obtener latitud, longitud */
         const success = async (pos) => {
             const crd = pos.coords;
@@ -28,6 +40,10 @@ function App() {
     const getWeather = async () => {
         const weatherData = await getWeatherByCity(city);
         if (weatherData) {
+            /* imagen random */
+            const getFondo = getRandomBackground();
+            setFondo(getFondo);
+
             setWeatherData(weatherData);
             setIsLoading(false);
         }
@@ -46,6 +62,7 @@ function App() {
 
     return (
         <>
+            <img src={fondo} alt="fondoAleatorio" className={generalStyles.fondo} />
             <div className={generalStyles.weatherContainer}>
                 {isLoading ? (
                     <div className={generalStyles.carga}>
@@ -59,8 +76,12 @@ function App() {
 
                             <HeaderContent weatherData={weatherData} />
                         </header>
-                        <main className={mainStyles.weatherContainer__main}></main>
-                        <footer></footer>
+                        <main className={mainStyles.weatherContainer__main}>
+                            <MainContent weatherData={weatherData} />
+                        </main>
+                        <footer className={footerStyles.weatherContainer__footer}>
+                            <FooterContent />
+                        </footer>
                     </>
                 )}
             </div>

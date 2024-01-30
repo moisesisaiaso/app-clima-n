@@ -8,7 +8,7 @@
     font-size: 16px;
     --textColor-primary: #333333;
     --textColor-secundary: #acacac;
-    --shadow: 2px 2px 2px var(--textColor-secundary);
+    --text-shadow: 2px 2px 2px var(--textColor-secundary);
 }
 
 @font-face {
@@ -36,7 +36,6 @@
 body {
     font-family: ValeraRound;
     color: white;
-    background-image: url(../../../public/fondo.jpg);
     width: 100%;
 }
 
@@ -47,14 +46,22 @@ body {
         "main"
         "footer";
 
-    grid-template-rows: 3fr 5fr 2fr;
+    grid-template-rows: 3fr 2.3fr 0.4fr;
     width: 80%;
     min-width: 80%;
-
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(2px);
     margin: 0 auto;
     height: 100vh;
+}
+
+.fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 20/9;
+    z-index: -2;
 }
 
 .carga {
@@ -66,22 +73,23 @@ body {
 
 header {
     grid-area: "header";
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
     min-width: 80%;
 }
 
 main {
+    display: block;
     grid-area: "main";
-    background-color: black;
-    padding: 0 1.5rem;
+    padding: 0 3rem;
     position: relative;
     min-width: 80%;
+    min-height: 12rem;
 }
 
 footer {
     grid-area: "footer";
-    padding: 1rem;
     min-width: 80%;
+    padding: 10px 0;
 }
 
 /* tablet */

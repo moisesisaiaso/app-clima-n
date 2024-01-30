@@ -1,0 +1,9 @@
+.weatherContainer__footer {
+    text-align: center;
+    font-family: Montserrat-medium;
+}
+
+.footer__content {
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 1px gray;
+}

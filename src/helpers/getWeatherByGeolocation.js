@@ -12,11 +12,11 @@ export const getWeatherByGeolocation = async (coords) => {
         .then(({ data }) => data)
         .catch((err) => console.log(err));
 
-    const { name, coord, sys, weather, wind, clouds, rain, main, timezone } = resp;
+    const { name, coord, sys, weather, visibility, wind, clouds, rain, main, timezone } = resp;
 
     console.log(resp);
 
-    return { name, coord, sys, weather, wind, clouds, rain, main, timezone };
+    return { name, coord, sys, weather, visibility, wind, clouds, rain, main, timezone };
 
     // const WeatherData =  { name, sys, weather, wind, clouds, main }
 };
