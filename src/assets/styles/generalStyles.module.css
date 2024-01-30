@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    --textColor-primary: #333333;
+    --textColor-secundary: #acacac;
+    --shadow: 2px 2px 2px var(--textColor-secundary);
+}
+
+@font-face {
+    font-family: ValeraRound;
+    src: url("../fonts/VarelaRound-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Montserrat-medium;
+    src: url(../fonts/Montserrat-Medium.ttf) format("truetype");
+}
+@font-face {
+    font-family: Montserrat-semiB;
+    src: url(../fonts/Montserrat-SemiBold.ttf) format("truetype");
+}
+@font-face {
+    font-family: Montserrat-bold;
+    src: url(../fonts/Montserrat-Bold.ttf) format("truetype");
+}
+@font-face {
+    font-family: Montserrat-extraB;
+    src: url(../fonts/Montserrat-ExtraBold.ttf) format("truetype");
+}
+
+body {
+    font-family: ValeraRound;
+    color: white;
+    background-image: url(../../../public/fondo.jpg);
+    width: 100%;
+}
+
+.weatherContainer {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+
+    grid-template-rows: 3fr 5fr 2fr;
+    width: 80%;
+    min-width: 80%;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.carga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    grid-area: "header";
+    padding: 1.5rem;
+    min-width: 80%;
+}
+
+main {
+    grid-area: "main";
+    background-color: black;
+    padding: 0 1.5rem;
+    position: relative;
+    min-width: 80%;
+}
+
+footer {
+    grid-area: "footer";
+    padding: 1rem;
+    min-width: 80%;
+}
+
+/* tablet */
+@media screen and (max-width: 481px) {
+    .weatherContainer {
+        width: 100%;
+    }
+}

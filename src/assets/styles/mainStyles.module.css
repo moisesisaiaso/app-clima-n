@@ -1,0 +1,13 @@
+.weatherContainer__main {
+    height: 100%;
+    width: 100%;
+}
+.weatherContainer__main::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+}
