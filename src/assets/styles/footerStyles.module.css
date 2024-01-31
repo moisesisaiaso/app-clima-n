@@ -1,6 +1,9 @@
 .weatherContainer__footer {
     text-align: center;
     font-family: Montserrat-medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer__content {
